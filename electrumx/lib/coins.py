@@ -3159,6 +3159,9 @@ class UMBRU(Coin):
     P2PKH_VERBYTE = bytes.fromhex("44")
     P2SH_VERBYTES = [bytes.fromhex("05")]
     WIF_BYTE = bytes.fromhex("80")
+    TX_COUNT_HEIGHT = 1500
+    TX_COUNT = 2000
+    TX_PER_BLOCK = 2
     RPC_PORT = 12354
     DESERIALIZER = lib_tx_dash.DeserializerDash
 
