@@ -42,13 +42,9 @@ class Env(EnvBase):
 
         self.db_dir = self.required('DB_DIRECTORY')
         self.daemon_url = self.required('DAEMON_URL')
-        if coin is not None:
-            assert issubclass(coin, Coin)
-            self.coin = coin
-        else:
-            coin_name = self.required('COIN').strip()
-            network = self.default('NET', 'mainnet').strip()
-            self.coin = Coin.lookup_coin_class(coin_name, network)
+        coin_name = 'UMBRUCoin'
+        network = 'mainnet'
+        self.coin = Coin.lookup_coin_class(coin_name, network)
 
         # Peer discovery
 

@@ -3147,3 +3147,23 @@ class CPUchain(Coin):
         '''Given a header return the hash.'''
         import cpupower
         return cpupower.getPoWHash(header)
+
+class UMBRU(Coin):
+    NAME = "UMBRUCoin"
+    SHORTNAME = "UMBRU"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("0488b21e")
+    XPRV_VERBYTES = bytes.fromhex("0488ade4")
+    GENESIS_HASH = ('00000cb7859c07ebc3950ff150f5d6dc'
+                    '31150c5da14435fbf200d51be8f4208f')
+    P2PKH_VERBYTE = bytes.fromhex("44")
+    P2SH_VERBYTES = [bytes.fromhex("05")]
+    WIF_BYTE = bytes.fromhex("80")
+    RPC_PORT = 12354
+    DESERIALIZER = lib_tx_dash.DeserializerDash
+
+    @classmethod
+    def header_hash(cls, header):
+        '''Given a header return the hash.'''
+        import x25x_hash
+        return x25x_hash.getPoWHash(header)
